@@ -2,6 +2,7 @@ FROM ghcr.io/sfc-aqua/quisp-dev:latest
 
 RUN apt-get update && apt-get install -y \
     xserver-xephyr\
+    openssh-server\
     xdm\
     git \
     doxygen
