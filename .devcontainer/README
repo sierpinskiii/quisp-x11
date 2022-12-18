@@ -1,0 +1,7 @@
+Temporal comment: GitHub CLI is working pretty handy here. Install it, setup your account, and run the following:
+
+gh cs ssh -- -XY
+
+Then choose your codespace instance.
+
+At this moment, the X11 forwarding has some response lag. Looking for the solution.
