@@ -1,17 +1,17 @@
 FROM ghcr.io/sfc-aqua/quisp-dev:latest
 
 RUN apt-get update && apt-get install -y \
-    xpra\
-    rox-filer\
-    openssh-server\
     xserver-xephyr\
     xdm\
-    fluxbox\
     git \
-    xvfb\
-    wget \
-    build-essential \
     doxygen
+
+# Copied command from https://github.com/rogaha/docker-desktop/blob/master/Dockerfile
+# Configuring xdm to allow connections from any IP address and ssh to allow X11 Forwarding. 
+RUN sed -i 's/DisplayManager.requestPort/!DisplayManager.requestPort/g' /etc/X11/xdm/xdm-config
+RUN sed -i '/#any host/c\*' /etc/X11/xdm/Xaccess
+RUN ln -s /usr/bin/Xorg 
+RUN echo X11Forwarding yes >> /etc/ssh/ssh_config
 
 RUN mkdir /var/run/sshd
 RUN echo 'root:coffeeplease' | chpasswd
