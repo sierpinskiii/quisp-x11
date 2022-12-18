@@ -2,7 +2,10 @@ FROM ghcr.io/sfc-aqua/quisp-dev:latest
 
 RUN apt-get update && apt-get install -y \
     xserver-xephyr\
+    xpra\
     openssh-server\
+    libcanberra-gtk-module\
+    libcanberra-gtk3-module\
     xauth\
     xdm\
     git \
@@ -25,4 +28,4 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
-RUN export DISPLAY=localhost:10.0
+# RUN export DISPLAY=localhost:10.0
