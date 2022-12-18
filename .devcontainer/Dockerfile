@@ -1,5 +1,18 @@
 FROM ghcr.io/sfc-aqua/quisp-dev:latest
 
+RUN apt-get update && apt-get install -y \
+    xpra\
+    rox-filer\
+    openssh-server\
+    xserver-xephyr\
+    xdm\
+    fluxbox\
+    git \
+    xvfb\
+    wget \
+    build-essential \
+    doxygen
+
 RUN mkdir /var/run/sshd
 RUN echo 'root:coffeeplease' | chpasswd
 RUN echo 'vscode:morecoffee' | chpasswd
