@@ -27,10 +27,8 @@
 		}
 	},
 
-	/*"runArgs": ["--net-host", "--shm-size=1g"],
-	"remoteEnv": {
-		"DISPLAY": ":0"
-	},*/
+  //"environment": [ {"name" : "DISPLAY", "value": "localhost:11.0"}],
+  // "terminal.integrated.env.linux": {"DISPLAY":"localhost:10.0"},
 
 	"customizations": {
 		"vscode": {

@@ -3,6 +3,7 @@ FROM ghcr.io/sfc-aqua/quisp-dev:latest
 RUN apt-get update && apt-get install -y \
     xserver-xephyr\
     openssh-server\
+    xauth\
     xdm\
     git \
     doxygen
@@ -23,3 +24,5 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
+
+RUN export DISPLAY=localhost:10.0
